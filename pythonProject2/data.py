@@ -9,13 +9,13 @@ import pandas as pd
 import openpyxl
 from openpyxl import Workbook,load_workbook
 
-def data():
+def data(filename):
     wb = load_workbook('./list1.xlsx')
     sheet = wb.active
     # 引入文件
     tim = []                                    #经常旷课同学的旷课时间（第几节课）
     y = random.randint(5,8)
-    print(y)
+    #print(y)
     for i in range(1, y+1):
         l = random.sample(range(1, 21), 16)
         tim.append(l)
@@ -44,14 +44,14 @@ def data():
                 once_thre_abs.append(unit)
         fre_abs.append(once_thre_abs)
 
-    print(" #20次，偶尔旷课的同学的总次数")
+    #print(" #20次，偶尔旷课的同学的总次数")
     x = 0
     for i in range(0,len(fre_abs)):
         x += len(fre_abs[i])
-    print(x)
-    print(" #所有旷课的同学的总次数")
+    #print(x)
+    #print(" #所有旷课的同学的总次数")
 
-    print(x+y*16)
+    #print(x+y*16)
     for i in range(len(fre_abs)):
         for j in fre_abs[i]:
             sheet.cell(j+1, i+3).value = 0
@@ -66,5 +66,7 @@ def data():
             if sheet.cell(i, j).value is None:
                 sheet.cell(i, j).value = 1
 
-    wb.save("list6.xlsx")
+    wb.save(filename)
 
+if __name__ == "__main__":
+    data("list.xlsx")
