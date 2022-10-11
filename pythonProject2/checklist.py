@@ -77,21 +77,15 @@ def main():
 
         nl.save(namelist[k])
         k += 1
-    # print(valid)
-    # print(total)
-    # print(valid / total)
-    #print(len(al_absence))
-    return valid/ total
-
+    print(valid)
+    print(total)
+    print(valid / total)
+   
 
 
 if __name__ == "__main__":
-    s = 0
-    for i in range(1, 101):
-        s += main()
-        print(s)
-    print(s/100)
-
+     main()
+       
 
 
 
